@@ -1,0 +1,58 @@
+#!/bin/sh
+
+# vim: ts=8 sw=8 noet cc=80
+#
+# SPDX-License-Identifier: GPL-3.0-or-later
+#
+# Portable package manager made in POSIX shell script
+# Copyright (C) 2023  astral
+# 
+# This file is part of ppmpss.
+# 
+# ppmpss is free software: you can redistribute it and/or modify it under the
+# terms of the GNU General Public License as published by the Free Software
+# Foundation, either version 3 of the License, or (at your option) any later
+# version.
+# 
+# ppmpss is distributed in the hope that it will be useful, but WITHOUT ANY
+# WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+# FOR A PARTICULAR PURPOSE. See the GNU General Public License for more
+# details.
+# 
+# You should have received a copy of the GNU General Public License along with
+# ppmpss. If not, see <https://www.gnu.org/licenses/>.
+
+for arg
+do
+	case $arg in
+	--reset)
+		rm -f config.mk
+		if [ -f Makefile ]
+		then
+			mv Makefile Makefile.in
+		fi
+		exit 0
+		;;
+	--prefix=*)
+		PREFIX=${arg##*=}
+		;;
+	*)
+		printf >&2 "usage: %s [--reset] [--prefix=<PREFIX>]\n" "$0"
+		exit 1
+		;;
+	esac
+done
+
+: "${PREFIX:=/usr/local}"
+
+cat << eof > config.mk
+DESTDIR =
+PREFIX  = $PREFIX
+eof
+
+if [ -f Makefile.in ]
+then
+	mv Makefile.in Makefile
+fi
+
+exit 0
