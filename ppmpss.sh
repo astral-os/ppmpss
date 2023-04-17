@@ -66,6 +66,9 @@ msgf() {
 }
 
 # Function to run when INT signal is received
+#
+# interrupt is never called except for SIGINT trap
+# shellcheck disable=SC2317,SC2086
 interrupt() {
 	echo
 	msgf >&2 $RED "SIGINT received...\n"
@@ -80,3 +83,99 @@ then
 	msgf >&2 $RED "usage: %s <command> ...\n" "$PROG"
 	exit $EXIT_USAGE
 fi
+
+# Process different commands
+case $1 in
+pkg)
+	shift
+
+	output=
+	template=
+	while getopts o:c: name
+	do
+		case $name in
+		o)
+			output=$OPTARG
+			;;
+		c)
+			template=$OPTARG
+			;;
+		?)
+			msgf >&2 $RED "usage: %s [-o <OUTPUT>] [-c <TEMPLATE>] [pkg]...\n" "$PROG"
+			exit $EXIT_USAGE
+			;;
+		esac
+	done
+	shift $((OPTIND-1))
+
+	if [ "$output" ]
+	then
+		msgf $BLUE "specified output: %s\n" "$output"
+	fi
+
+	if [ "$template" ]
+	then
+		msgf $BLUE "specified template: %s\n" "$template"
+	fi
+
+	msgf $PURPLE "specified packages: %s\n" "$*"
+	;;
+em)
+	shift
+
+	sflag=
+	uflag=
+	repo=
+	while getopts suR: name
+	do
+		case $name in
+		s)
+			sflag=1
+			;;
+		u)
+			uflag=1
+			;;
+		R)
+			repo=$OPTARG
+			;;
+		?)
+			msgf >&2 $RED "usage: %s [-s] [-u] [-R <repo>] [pkg]...\n" "$PROG"
+			exit $EXIT_USAGE
+			;;
+		esac
+	done
+	shift $((OPTIND-1))
+
+	if [ "$sflag" ]
+	then
+		msgf $BLUE "sync flag specified\n"
+	fi
+
+	if [ "$uflag" ]
+	then
+		if [ $# -eq 0 ]
+		then
+			msgf $BLUE "system update specified\n"
+		fi
+		msgf $BLUE "update flag specified\n"
+	fi
+
+	if [ "$repo" ]
+	then
+		msgf $BLUE "specified repo: %s\n" "$repo"
+	fi
+
+	msgf $PURPLE "specified packages: %s\n" "$*"
+	;;
+rm)
+	shift
+
+	msgf $PURPLE "specified packages: %s\n" "$*"
+	;;
+*)
+	msgf >&2 $RED "unknown command: %s\n" "$1"
+	exit $EXIT_USAGE
+	;;
+esac
+
+exit 0

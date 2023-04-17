@@ -38,6 +38,15 @@ install:
 	@mkdir -p $(DESTDIR)$(PREFIX)/share/man/man1
 	@cp ppmpss.1 $(DESTDIR)$(PREFIX)/share/man/man1
 	@chmod 644 $(DESTDIR)$(PREFIX)/share/man/man1/ppmpss.1
+	@cp ppmpss-pkg.1 $(DESTDIR)$(PREFIX)/share/man/man1
+	@chmod 644 $(DESTDIR)$(PREFIX)/share/man/man1/ppmpss-pkg.1
+	@cp ppmpss-em.1 $(DESTDIR)$(PREFIX)/share/man/man1
+	@chmod 644 $(DESTDIR)$(PREFIX)/share/man/man1/ppmpss-em.1
+	@cp ppmpss-rm.1 $(DESTDIR)$(PREFIX)/share/man/man1
+	@chmod 644 $(DESTDIR)$(PREFIX)/share/man/man1/ppmpss-rm.1
 uninstall:
 	@rm -f $(DESTDIR)$(PREFIX)/bin/ppmpss
 	@rm -f $(DESTDIR)$(PREFIX)/share/man/man1/ppmpss.1
+	@rm -f $(DESTDIR)$(PREFIX)/share/man/man1/ppmpss-pkg.1
+	@rm -f $(DESTDIR)$(PREFIX)/share/man/man1/ppmpss-em.1
+	@rm -f $(DESTDIR)$(PREFIX)/share/man/man1/ppmpss-rm.1

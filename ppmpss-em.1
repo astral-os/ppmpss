@@ -20,10 +20,22 @@
 .\" You should have received a copy of the GNU General Public License along
 .\" with ppmpss. If not, see <https://www.gnu.org/licenses/>.
 
-.TH PPMPSS 1
+.TH PPMPSS-EM 1
 .SH NAME
-ppmpss \- Portable Package Manager made in Posix SHELL Script
+ppmpss-em \- emerge a package into the system
 .SH SYNOPSIS
-.B ppmpss
+.B ppmpss em
+[\fIOPTIONS\fR] [\fIPKG\fR]...
 .SH DESCRIPTION
-Build, package, and install software.
+Emerge the specified \fIPKG\fR into the system.
+.SH OPTIONS
+.TP
+.B \-s
+Synch the local ppmpss repo with the remote one.
+.TP
+.B \-u [\fIPKG\fR]...
+Update the specified \fIPKG\fR. If no \fIPKG\fR is specified, update every
+emerged package.
+.TP
+.B \-R <\fIREPO\fR>
+Emerge a package from the specified \fIREPO\fR.
