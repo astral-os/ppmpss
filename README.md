@@ -14,6 +14,19 @@ $ ./configure
 $ make
 ```
 
+For more help on the configure script, run:
+
+```
+$ ./configure --help
+```
+
+## Example
+
+```
+$ ./configure --prefix=/usr
+$ make
+```
+
 # Installing
 
 To install `ppmpss`, built it and run:
@@ -29,7 +42,7 @@ To install `ppmpss`, built it and run:
 SPDX-License-Identifier: `GPL-3.0-or-later`
 
 Portable package manager made in POSIX shell script  
-Copyright (C) 2023  astral
+Copyright (C) 2023 astral
 
 This program is free software: you can redistribute it and/or modify it under
 the terms of the GNU General Public License as published by the Free Software
