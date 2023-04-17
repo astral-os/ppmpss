@@ -65,13 +65,6 @@ msgf() {
 	printf "$@"
 }
 
-# Check if no command is specified
-if [ $# -eq 0 ]
-then
-	msgf >&2 $RED "usage: %s <command> ...\n" "$PROG"
-	exit $EXIT_USAGE
-fi
-
 # Function to run when INT signal is received
 interrupt() {
 	echo
@@ -80,3 +73,10 @@ interrupt() {
 }
 
 trap 'interrupt' INT
+
+# Check if no command is specified
+if [ $# -eq 0 ]
+then
+	msgf >&2 $RED "usage: %s <command> ...\n" "$PROG"
+	exit $EXIT_USAGE
+fi
