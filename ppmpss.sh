@@ -25,9 +25,6 @@
 # Store name of program as script will shift and $0 can't be relied on
 PROG=$0
 
-# Handled by configure script
-PREFIX=/usr/local
-
 # Exit codes
 {
 	EXIT_USAGE=1

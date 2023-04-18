@@ -10,23 +10,8 @@ Portable Package Manager made in POSIX shell script.
 To build `ppmpss` run:
 
 ```
-$ ./configure
 $ make
 ```
-
-For more help on the configure script, run:
-
-```
-$ ./configure --help
-```
-
-## Example
-
-```
-$ ./configure --prefix=/usr
-$ make
-```
-
 # Installing
 
 To install `ppmpss`, built it and run:
