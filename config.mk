@@ -1,5 +1,5 @@
 # vim: ts=8 sw=8 noet cc=80
-#
+
 # SPDX-License-Identifier: GPL-3.0-or-later
 #
 # Portable package manager made in POSIX shell script
