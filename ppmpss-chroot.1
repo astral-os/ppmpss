@@ -20,25 +20,14 @@
 .\" You should have received a copy of the GNU General Public License along
 .\" with ppmpss. If not, see <https://www.gnu.org/licenses/>.
 
-.TH PPMPSS-PKG 1
+.TH PPMPSS-CHROOT 1
 
 .SH NAME
-ppmpss-pkg \- build a ppmpss package archive
+ppmpss-chroot \- Portable Package Manager made in Posix SHELL Script
 
 .SH SYNOPSIS
-.B ppmpss pkg
-[\fIOPTIONS\fR] [\fIPKG\fR]...
+.B ppmpss chroot
+<\fIDIR\fR>
 
 .SH DESCRIPTION
-Read a package template and build the corresponding package archive for ppmpss.
-
-.SH OPTIONS
-The following \fIOPTIONS\fR are available.
-
-.TP
-.B \-o <\fIOUTPUT\fR>
-Build the ppmpss package archive to specified \fIOUTPUT\fR.
-
-.TP
-.B \-c <\fITEMPLATE\fR>
-Build a package from a specified \fITEMPLATE\fR.
+Change the working root directory into \fIDIR\fR.

@@ -169,6 +169,17 @@ rm)
 
 	msgf $PURPLE "specified packages: %s\n" "$*"
 	;;
+chroot)
+	shift
+
+	if [ $# -ne 1 ]
+	then
+		msgf >&2 $RED "usage: %s chroot <dir>\n" "$PROG"
+		exit $EXIT_USAGE
+	fi
+
+	msgf $PURPLE "specified chroot: %s\n" "$1"
+	;;
 *)
 	msgf >&2 $RED "unknown command: %s\n" "$1"
 	exit $EXIT_USAGE

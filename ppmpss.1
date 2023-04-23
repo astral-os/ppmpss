@@ -21,9 +21,32 @@
 .\" with ppmpss. If not, see <https://www.gnu.org/licenses/>.
 
 .TH PPMPSS 1
+
 .SH NAME
 ppmpss \- Portable Package Manager made in Posix SHELL Script
+
 .SH SYNOPSIS
 .B ppmpss
+<\fICMD\fR>
+
 .SH DESCRIPTION
-Build, package, and install software.
+Build, package, and manage software.
+
+.SS CMD
+The following \fICMD\fR are available.
+
+.TP
+.B pkg
+Build ppmpss packages.
+
+.TP
+.B em
+Install ppmpss packages.
+
+.TP
+.B rm
+Remove ppmpss packages.
+
+.TP
+.B chroot
+Change working root directory to a ppmpss root directory.

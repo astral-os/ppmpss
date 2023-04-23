@@ -21,21 +21,29 @@
 .\" with ppmpss. If not, see <https://www.gnu.org/licenses/>.
 
 .TH PPMPSS-EM 1
+
 .SH NAME
 ppmpss-em \- emerge a package into the system
+
 .SH SYNOPSIS
 .B ppmpss em
 [\fIOPTIONS\fR] [\fIPKG\fR]...
+
 .SH DESCRIPTION
 Emerge the specified \fIPKG\fR into the system.
+
 .SH OPTIONS
+The following \fIOPTIONS\fR are available.
+
 .TP
 .B \-s
 Synch the local ppmpss repo with the remote one.
+
 .TP
 .B \-u [\fIPKG\fR]...
 Update the specified \fIPKG\fR. If no \fIPKG\fR is specified, update every
 emerged package.
+
 .TP
 .B \-R <\fIREPO\fR>
 Emerge a package from the specified \fIREPO\fR.
