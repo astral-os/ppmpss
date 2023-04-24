@@ -23,7 +23,7 @@
 # ppmpss. If not, see <https://www.gnu.org/licenses/>.
 
 # Store name of program as script will shift and $0 can't be relied on
-PROG=$0
+PROG=$(basename "$0")
 
 # Exit codes
 {
